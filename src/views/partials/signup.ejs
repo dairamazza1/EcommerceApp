@@ -1,0 +1,59 @@
+<% if (signup) { %>
+
+<div class="container my-5">
+
+  <legend>Registro de usuario</legend>
+  <br>
+  <form class="form" role="form" action="/signup" method="post" enctype="multipart/form-data" autocomplete="off">
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input class="form-control" type="email" id="email" name ="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Nombre</label>
+      <input class="form-control" type="text" id="username" name ="username" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="address" class="form-label">Dirección</label>
+      <input class="form-control" type="text" id="address" name ="address" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Edad</label>
+      <input class="form-control" type="number" id="age" name ="age" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="tel" class="form-label">Teléfono</label>
+      <input class="form-control" type="tel" id="tel" name ="tel" pattern="/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/" title="El número debe tener 10 dígitos más el prefijo 549 (ARG)" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="file" class="form-label">Avatar</label>
+      <input class="form-control" type="file" id="file" name ="file" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input class="form-control" type="password" id="password" name ="password" required>
+    </div>
+
+    <div class="form-group">
+      <input class="btn btn-secondary btn-sm" type="submit" value="Singup">
+    </div>
+
+    <hr>
+    <form action="/login">
+      <div class="text-center"></div>
+          <button class="btn btn-secondary btn-sm">Ir a Login</button>
+      </div>
+    </form>
+
+  </form>
+
+</div>
+
+<% } %>
