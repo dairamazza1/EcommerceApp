@@ -1,9 +1,14 @@
 // DAOS
-const { ProductoDaoArchivo } = require('../daos/productos/ProductosDaoArchivo');
-let product = new ProductoDaoArchivo();
+// const { ProductoDaoArchivo } = require('../daos/productos/ProductosDaoArchivo');
+// let product = new ProductoDaoArchivo();
+
+const { ProductoDaoMongoDB } = require('../daos/productos/ProductosDaoMongoDB');
+let product = new ProductoDaoMongoDB();
 
 // const { ChatDaoArchivo } = require('../daos/chat/ChatDaoArchivo');
 // let chat = new ChatDaoArchivo();
+
+
 const { PORT } = require('../../src/config/globals');
 //INFO
 const { info }= require("../../src/utils/info");
@@ -17,6 +22,7 @@ const { url } = require('inspector');
 
 // EMAIL ADMIN
 const { sendEmail } = require("../../src/utils/generadorEmail");
+const products = require('../models/products');
 
 //ROUTES
 function getRoot(req, res) {
@@ -59,7 +65,7 @@ function postSignup (req, res) {
 
     if (req.isAuthenticated()) {
         //enviar email de registro a admin
-        sendEmail(req);
+        sendEmail(req.body);
         res.redirect('products')
     } else {
         res.redirect('login')
@@ -69,9 +75,12 @@ function postSignup (req, res) {
 async function getProducts (req, res){
     if (req.isAuthenticated()) {
         let user = req.user;
-        const prod = await product.getAll().then( (obj) =>{
+        //const popularBD = await product.popular(10);
+        
+        const prod = product.getAll().then( (obj) =>{
             obj.length > 0 ? res.render( 'pages/index', {listExists: true, listNotExists: false, user: user, isUser : true, info: false}) : res.render('pages/index', {listNotExists: true, listExists: false, user: user, isUser : true, info: false})
         }) 
+        
     } else {
         res.redirect('login')
     }

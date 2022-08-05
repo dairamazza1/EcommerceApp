@@ -8,4 +8,4 @@ function createHash(password) {
     )
 }
 
-module.exports = {createHash}
+module.exports = { createHash }

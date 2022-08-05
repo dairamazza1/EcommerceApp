@@ -38,7 +38,7 @@ const { percentage } = require('./src/utils/percentage')
 const { normalizr } = require('./src/utils/normalizrChat')
 const { TIEMPO_EXPIRACION } = require('./src/config/globals')
 const {validatePass} = require('./src/utils/passValidator');
-const {createHash} = require('./src/utils/hashGenerator')
+const {createHash} = require('./src/utils/hashGenerator');
 const routes = require('./src/routes/routes')
 const UserModel = require('./src/models/usuarios');
 const { PORT } = require('./src/config/globals')
@@ -85,8 +85,8 @@ app.set('view engine', 'ejs'); //se define extensión (motor de plantilla)
 app.use(express.static(__dirname + "/public"));
 
 passport.use('login', new LocalStrategy(
-    (email, password, callback) => {
-        UserModel.findOne({ email: email }, (err, user) => {
+    (username, password, callback) => {
+        UserModel.findOne({ username: username }, (err, user) => {
             if (err) {
                 return callback(err)
             }
@@ -102,7 +102,6 @@ passport.use('login', new LocalStrategy(
                 logger.error("Invalid Password" );
                 return callback(null, false)
             }
-
             return callback(null, user)
         })
     }
@@ -110,8 +109,8 @@ passport.use('login', new LocalStrategy(
 
 
 passport.use('signup', new LocalStrategy(
-    {passReqToCallback: true}, (req, email, password, callback) => {
-        UserModel.findOne({ email: email }, (err, user) => {
+    {passReqToCallback: true}, (req, username, password, callback) => {
+        UserModel.findOne({ username: username }, (err, user) => {
             if (err) {
                 const logger = log4js.getLogger("error");
                 logger.error("Hay un error al registrarse: ", UserModel );
@@ -123,21 +122,21 @@ passport.use('signup', new LocalStrategy(
                 return callback(null, false)
             }
 
-            const logger = log4js.getLogger("error");
+            const logger = log4js.getLogger("info");
             logger.info(req.body );
 
             const newUser = {
                 username: username,
-                email: email,
-                address: address,
-                age: age,
-                phone: tel,
-                avatar: file,
+                email: req.body.email,
+                address: req.body.address,
+                age: req.body.age,
+                phone: req.body.tel,
+                avatar: req.file.originalname,
                 password: createHash(password)
             }
-
             UserModel.create(newUser, (err, userWithId) => {
                 if (err) {
+                    console.log(err);
                     const logger = log4js.getLogger("error");
                     logger.error("Hay un error al registrarse: " , err);
                     return callback(err)
@@ -172,6 +171,7 @@ let product = new ProductoDaoArchivo();
 // WEB SOCKETS                
 const { Server: HttpServer } = require('http');
 const { Server: IOServer } = require('socket.io');
+const { log } = require('console');
 
 const httpServer = new HttpServer(app);
 const io = new IOServer(httpServer);
@@ -242,7 +242,7 @@ app.get('/faillogin', routes.getFaillogin);
 
 //  SIGNUP
 app.get('/signup', routes.getSignup);
-app.post('/signup', [ passport.authenticate('signup', { failureRedirect: '/failsignup' }) , upload.single('file') ], routes.postSignup);
+app.post('/signup', [ upload.single('file') , passport.authenticate('signup', { failureRedirect: '/failsignup' })  ], routes.postSignup);
 app.get('/failsignup', routes.getFailsignup);
 
 //  LOGOUT

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
+const { MONGO_URI } = require('../config/globals')
 
 class ContenedorMongoDB{
     constructor(model) {
     /* --------------------------------------- */
     /*     conexión hacia la base de datos     */
     /* --------------------------------------- */
-        const URL = 'mongodb+srv://test:1111@cluster0.cwmksz4.mongodb.net/?retryWrites=true&w=majority';
+
+        const URL = MONGO_URI;
 
         mongoose.connect(URL, {
           useNewUrlParser: true, 

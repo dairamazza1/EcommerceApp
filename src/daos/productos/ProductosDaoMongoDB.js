@@ -1,5 +1,7 @@
 const { ContenedorMongoDB } = require("../../contenedores/contenedorMongoDB");
-const model =  require('../../modelos/products.js');
+const model =  require('../../models/products.js');
+const {generarProducto} = require('../../utils/generadorDeProductos')
+
 
 class ProductoDaoMongoDB extends ContenedorMongoDB {
     constructor(){
@@ -13,16 +15,25 @@ class ProductoDaoMongoDB extends ContenedorMongoDB {
 
     async save(name, description, code, thumbnail, price, stock) {
         try {
-            let prod = {timestamp: this.timestamp, name: name, description: description, code: code, thumbnail: thumbnail, price: price, stock: stock}
+            let prod = {name: name, description: description, code: code, thumbnail: thumbnail, price: price, stock: stock}
+
             let productSaveModel = new model(prod);
-            console.log(productSaveModel);
+            //console.log(productSaveModel);
             let productSave = await productSaveModel.save();
         } catch (error) {
             console.log(error);
         } 
-        
-        
         //console.log(productSave);    
+    }
+
+    /* --------------------------------------- */
+    /*                POPULAR                  */
+    /* --------------------------------------- */
+    async popular(cant = 5) {
+        for (let index = 0; index < cant; index++) {
+            const nuevoProducto = generarProducto('');
+            this.save(nuevoProducto.name, nuevoProducto.description, nuevoProducto.code, nuevoProducto.thumbnail, nuevoProducto.price, nuevoProducto.stock);
+        }
     }
 
     // /* --------------------------------------- */
