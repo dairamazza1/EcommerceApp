@@ -124,19 +124,17 @@ passport.use('signup', new LocalStrategy(
 
             const logger = log4js.getLogger("info");
             logger.info(req.body );
-
             const newUser = {
                 username: username,
                 email: req.body.email,
                 address: req.body.address,
                 age: req.body.age,
                 phone: req.body.tel,
-                avatar: req.file.originalname,
+                avatar: req.file.filename,
                 password: createHash(password)
             }
             UserModel.create(newUser, (err, userWithId) => {
                 if (err) {
-                    console.log(err);
                     const logger = log4js.getLogger("error");
                     logger.error("Hay un error al registrarse: " , err);
                     return callback(err)
@@ -144,7 +142,6 @@ passport.use('signup', new LocalStrategy(
 
                 const logger = log4js.getLogger("info");
                 logger.info("Registro de usuario satisfactoria: " , userWithId);
-
                 return callback(null, userWithId)
             })
         })
@@ -250,6 +247,7 @@ app.get('/logout', routes.getLogout);
 
 // PRODUCTS
 app.get('/products', routes.getProducts);
+app.get('/products.data', routes.getProductsData);
 
 // INFO
 app.get("/info", routes.getInfo)

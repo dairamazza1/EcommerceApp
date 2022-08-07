@@ -93,3 +93,106 @@
 [2022-08-05T04:12:18.911] [INFO] info - Base de datos conectada
 [2022-08-05T04:15:57.918] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 7900
 [2022-08-05T04:16:00.153] [INFO] info - Base de datos conectada
+[2022-08-07T11:33:18.963] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 11000
+[2022-08-07T11:33:21.474] [INFO] info - Base de datos conectada
+[2022-08-07T11:34:44.353] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 8316
+[2022-08-07T11:34:46.421] [INFO] info - Base de datos conectada
+[2022-08-07T11:38:59.527] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 6808
+[2022-08-07T11:39:01.414] [INFO] info - Base de datos conectada
+[2022-08-07T11:39:45.121] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 1564
+[2022-08-07T11:39:46.754] [INFO] info - Base de datos conectada
+[2022-08-07T11:42:09.022] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 5640
+[2022-08-07T11:42:11.035] [INFO] info - Base de datos conectada
+[2022-08-07T11:45:28.111] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 6620
+[2022-08-07T11:45:29.997] [INFO] info - Base de datos conectada
+[2022-08-07T11:46:39.492] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 9364
+[2022-08-07T11:46:41.319] [INFO] info - Base de datos conectada
+[2022-08-07T11:48:42.670] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 5652
+[2022-08-07T11:48:44.703] [INFO] info - Base de datos conectada
+[2022-08-07T11:50:00.434] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 10920
+[2022-08-07T11:50:02.557] [INFO] info - Base de datos conectada
+[2022-08-07T11:51:09.501] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 9928
+[2022-08-07T11:51:11.750] [INFO] info - Base de datos conectada
+[2022-08-07T12:02:46.627] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 10244
+[2022-08-07T12:02:48.531] [INFO] info - Base de datos conectada
+[2022-08-07T12:06:20.484] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 6340
+[2022-08-07T12:06:22.501] [INFO] info - Base de datos conectada
+[2022-08-07T12:08:07.486] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 8656
+[2022-08-07T12:08:09.539] [INFO] info - Base de datos conectada
+[2022-08-07T12:09:52.873] [INFO] info - [Object: null prototype] {
+  email: 'daira0796@hotmail.com',
+  username: 'dm',
+  address: '1 de mayo 2835',
+  age: '23',
+  tel: '1122527377',
+  password: 'dm'
+}
+[2022-08-07T12:09:53.151] [INFO] info - Registro de usuario satisfactoria:  {
+  username: 'dm',
+  email: 'daira0796@hotmail.com',
+  address: '1 de mayo 2835',
+  age: 23,
+  phone: 1122527377,
+  avatar: 'rhapsodyinbblue-20191114-0001.jpg',
+  password: '$2b$10$FXS5IaiZRJJCmCNrSh6.fe0H8fAc5dhnNpFvYPMzNZdkXcvqOYzuC',
+  _id: new ObjectId("62efd5c026a9171f8a50987a"),
+  __v: 0
+}
+[2022-08-07T12:13:32.282] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 7080
+[2022-08-07T12:13:34.351] [INFO] info - Base de datos conectada
+[2022-08-07T12:13:57.174] [INFO] info - [Object: null prototype] {
+  email: 'daira0796@hotmail.com',
+  username: 'dd',
+  address: '1 de mayo 2835',
+  age: '33',
+  tel: '1122527377',
+  password: 'dd'
+}
+[2022-08-07T12:13:57.458] [INFO] info - Registro de usuario satisfactoria:  {
+  username: 'dd',
+  email: 'daira0796@hotmail.com',
+  address: '1 de mayo 2835',
+  age: 33,
+  phone: 1122527377,
+  avatar: 'rhapsodyinbblue-20191114-0001.jpg',
+  password: '$2b$10$zLfTawXfHDyc/zCaobFB7OYhXAfZ0E.PgD1oiBXEV2hFDygMP8CRK',
+  _id: new ObjectId("62efd6b5d2236425d13b7f32"),
+  __v: 0
+}
+[2022-08-07T12:15:13.138] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 7052
+[2022-08-07T12:15:14.956] [INFO] info - Base de datos conectada
+[2022-08-07T12:15:32.565] [INFO] info - [Object: null prototype] {
+  email: 'daira0796@hotmail.com',
+  username: 'aa',
+  address: '1 de mayo 2835',
+  age: '22',
+  tel: '1122527377',
+  password: 'aa'
+}
+[2022-08-07T12:15:32.836] [INFO] info - Registro de usuario satisfactoria:  {
+  username: 'aa',
+  email: 'daira0796@hotmail.com',
+  address: '1 de mayo 2835',
+  age: 22,
+  phone: 1122527377,
+  avatar: 'file-1659885332398',
+  password: '$2b$10$W/v0LhozBzGJI1rqEsooqOluD1BFf5CBc7ZlDEPUrQ43qdMomUs82',
+  _id: new ObjectId("62efd7141f611df6fe08f5c9"),
+  __v: 0
+}
+[2022-08-07T12:18:44.503] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 12092
+[2022-08-07T12:18:46.565] [INFO] info - Base de datos conectada
+[2022-08-07T12:20:53.970] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 4312
+[2022-08-07T12:20:55.923] [INFO] info - Base de datos conectada
+[2022-08-07T12:22:30.039] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 12084
+[2022-08-07T12:22:32.338] [INFO] info - Base de datos conectada
+[2022-08-07T12:23:56.092] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 6736
+[2022-08-07T12:23:58.140] [INFO] info - Base de datos conectada
+[2022-08-07T12:26:13.051] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 2040
+[2022-08-07T12:26:15.052] [INFO] info - Base de datos conectada
+[2022-08-07T12:27:55.794] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 7264
+[2022-08-07T12:27:57.930] [INFO] info - Base de datos conectada
+[2022-08-07T12:30:30.903] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 11024
+[2022-08-07T12:30:33.002] [INFO] info - Base de datos conectada
+[2022-08-07T12:30:58.305] [INFO] info - Servidor en Puerto 8080 - PID WORKER: 10296
+[2022-08-07T12:30:59.977] [INFO] info - Base de datos conectada

@@ -75,8 +75,7 @@ function postSignup (req, res) {
 async function getProducts (req, res){
     if (req.isAuthenticated()) {
         let user = req.user;
-        //const popularBD = await product.popular(10);
-        
+        //const popularBD = await product.popular(10);       
         const prod = product.getAll().then( (obj) =>{
             obj.length > 0 ? res.render( 'pages/index', {listExists: true, listNotExists: false, user: user, isUser : true, info: false}) : res.render('pages/index', {listNotExists: true, listExists: false, user: user, isUser : true, info: false})
         }) 
@@ -84,6 +83,12 @@ async function getProducts (req, res){
     } else {
         res.redirect('login')
     }
+}
+
+async function getProductsData (req, res){
+        const prod = product.getAll().then( (obj) =>{
+            obj.length > 0 ? res.json({products: obj}) : res.json({products: {} })
+        }) 
 }
 
 function getFaillogin (req, res) {
@@ -157,6 +162,7 @@ module.exports = {
     postSignup,
     getFailsignup,
     getProducts,
+    getProductsData,
     getInfo,
     getRandom
 }

@@ -1,17 +1,12 @@
-
+document.addEventListener("DOMContentLoaded", () => {
     //let inputSave = document.getElementById('saveProduct');
-
     //inputSave.addEventListener('click', addProduct)
-
     getProducts();
 
     function getProducts() {
-        fetch('/products')
-        .then(response => {console.log(response); response.json()})
-        .then(data => {
-            console.log(data);
-            //renderProd(data);
-        });
+        fetch('/products.data')
+        .then(response =>  response.json() )
+        .then(data => renderProd(data.products));
     }
 
     function renderProd(data) {
@@ -23,7 +18,7 @@
         const html = data.map((elem, index) => {
             return(
                 `
-                <div>${elem.name}</div>
+                <div style="height: 50px;">${elem.name}</div>
                 `
             )
         }).join(" ");
@@ -32,7 +27,7 @@
     function renderPrice(data) {
         const html = data.map((elem, index) => {
             return(
-                `<div>${elem.price}</div>`
+                `<div style="height: 50px;" >${elem.price}</div>`
             )
         }).join(" ");
         document.getElementById('price_set').innerHTML = html;
@@ -41,7 +36,7 @@
         const html = data.map((elem, index) => {
             return(
                 `
-                <div><img class="card-img-top"  src=${elem.thumbnail} alt="" width="100" height="100"  /></div>
+                <div ><img class="card-img-top"  src=${elem.thumbnail} alt="" width="50" height="50"  /></div>
                 
                 `
             )
@@ -76,3 +71,4 @@
         return false;
     } */
 
+});
